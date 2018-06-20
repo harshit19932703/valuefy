@@ -1,0 +1,48 @@
+
+<div class="well">
+        <input ng-model="todoText" type="text" id="newTask"
+            required="required"  size="35" placeholder="Enter your todo here"/>
+
+        <a ng-click="addToDo()" class="btn btn-primary" href="#">
+            <i class="icon-plus"></i> Add</a>
+	    <!-- <a ng-click="removeDone()" class="btn btn-danger" href="#">
+            <i class="icon-trash"></i> Remove Done</a> -->
+    </div>
+    <div class="well">
+        <label>{{remaining()}} of {{todos.length}} remaining </label>
+
+        <!-- <input ng-model="query" type="text"  placeholder="Search"/> -->
+        <ul ng-repeat="todo in todos">
+            <li>
+                <input ng-model="todo.done" type="checkbox" />
+                <span style="float:right">
+                <button ng-click="remove(todo)">Delete</button>
+                <button ng-click="edit(todo)" data-toggle="modal" data-target="#exampleModal" ng-if="!todo.done">Edit</button>
+                 </span>              <!-- updates the css class to done_true or done_false -->
+                <span class="done_{{todo.done}}">{{todo.text}}</span>
+            </li>
+            <hr>
+        </ul>
+    </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Your Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Update Task:<input type="text" ng-model="h.text">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
