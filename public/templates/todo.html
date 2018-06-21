@@ -22,7 +22,7 @@
         <!-- <input ng-model="query" type="text"  placeholder="Search"/> -->
         <ul ng-repeat="todo in todos track by $index" class="list-group">
             <li class="list-group-item" style="margin-top:10px">
-                <input ng-model="todo.done" type="checkbox" ng-change="comp(todo.done)" />
+                <input ng-model="todo.done" type="checkbox" ng-change="comp(todo.done)" style="cursor: pointer;" />
                 <span style="float:right">
 
                 <button ng-click="edit(todo)" data-toggle="modal" data-target="#exampleModal" ng-if="!todo.done" class="btn btn-outline-warning">Edit</button>
