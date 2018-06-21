@@ -1,25 +1,35 @@
 
-<div >
-        <input ng-model="todoText" type="text" id="newTask"
-            required="required"  size="35" placeholder="Enter your todo here"/>
+<div>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <form class="form-inline" name="myForm">
+      <span>New Todo:</span>&nbsp&nbsp<input ng-model="todoText" type="text" id="newTask" size="35" placeholder="Enter your todo here"
+      class="form-control mr-sm-2" required/>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="addToDo()" ng-disabled="myForm.$invalid">Add</button>
 
-        <a ng-click="addToDo()" href="#">Add</a>
-        <button ng-click="sortcompleted()">SortCompleted</button>
+    </form>
+    <button ng-click="sortcompleted()" style="float:right" class="btn btn-outline-secondary">SortCompletedTasks</button>
+  </nav>
+
+
+
+
+
+
     </div>
     <div>
-        <label>{{remaining()}} of {{todos.length}} remaining </label>
+        <label class="rem">Info:  {{remaining()}} of {{todos.length}} remaining </label>
 
         <!-- <input ng-model="query" type="text"  placeholder="Search"/> -->
-        <ul ng-repeat="todo in todos track by $index">
-            <li>
+        <ul ng-repeat="todo in todos track by $index" class="list-group">
+            <li class="list-group-item" style="margin-top:10px">
                 <input ng-model="todo.done" type="checkbox" ng-change="comp(todo.done)" />
                 <span style="float:right">
-                <button ng-click="remove(todo)">Delete</button>
-                <button ng-click="edit(todo)" data-toggle="modal" data-target="#exampleModal" ng-if="!todo.done">Edit</button>
-                 </span>              <!-- updates the css class to done_true or done_false -->
+
+                <button ng-click="edit(todo)" data-toggle="modal" data-target="#exampleModal" ng-if="!todo.done" class="btn btn-outline-warning">Edit</button>
+                <button ng-click="remove(todo)" class="btn btn-outline-danger">Delete</button>
+                 </span>
                 <span class="done_{{todo.done}}">{{todo.text}}</span>
             </li>
-            <hr>
         </ul>
     </div>
 
