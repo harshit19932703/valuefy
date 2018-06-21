@@ -14,7 +14,7 @@
 # TechSTACk
 >Express,AngularJs(1.7),HTML,CSS,Bootstrap,Node
 
-#Info
+# Info
 *The project uses localstorage (browser) to keep the list of tasks and other details.<br>
 Angular has been used along with express and node to give you the idea of SPA.<br>
 Also,have done the minimal routing using uiRouter and oclazyloading modules as third party dep.
