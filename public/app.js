@@ -43,20 +43,7 @@
 
         .controller("baseController", ['$scope', '$rootScope', '$q', '$http', '$timeout', '$window',
             function($scope, $rootScope, $q, $http, $timeout, $window) {
-              // $scope.todos = [{
-              //     text: "learn Angular",
-              //     done: true
-              //   },
-              //   {
-              //     text: "build Angular app",
-              //     done: false
-              //   },
-              //   {
-              //     text: "show off Angular app",
-              //     done: false
-              //   }
-              // ];
-            //  $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
+              
 
             }
         ]);

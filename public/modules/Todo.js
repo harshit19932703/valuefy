@@ -1,22 +1,15 @@
   angular.module("ToDo", [])
-    .controller("ToDoController", ['$scope', '$rootScope', '$interval', '$window', '$http',
-      function($scope, $rootScope, $interval, $window, $http) {
-        $scope.todos = [{
-            "id": 1,
-            "text": "learn Angular",
-            "done": true
-          },
-          {
-            "id": 2,
-            "text": "build Angular app",
-            "done": false
-          },
-          {
-            "id": 3,
-            "text": "show off Angular app",
-            "done": false
-          }
-        ];
+    .controller("ToDoController", ['$scope', '$rootScope', '$interval', '$window', '$http','$filter',
+      function($scope, $rootScope, $interval, $window, $http,$filter) {
+        if($window.localStorage.getItem('mystorage')){
+          console.log("THERE",JSON.parse($window.localStorage.getItem('mystorage')))
+          $scope.todos=JSON.parse($window.localStorage.getItem('mystorage'))
+
+        }
+        else{
+          $scope.todos=[];
+          console.log("NO")
+        }
 
 
         //Member Functions
@@ -27,7 +20,7 @@
             done: false
           });
           $scope.todoText = '';
-        //  $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
+          $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
         };
 
         $scope.remaining = function() {
@@ -42,10 +35,21 @@
           $scope.todos = _.reject($scope.todos, function(d) {
             return x == d;
           });
-          console.log($scope.todos)
+          console.log($scope.todos);
+          $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
         }
         $scope.edit = function(x) {
           $scope.h=x;
+        }
+        $scope.comp=function(){
+        //  alert("click")
+          $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
+        }
+        $scope.setupdate=function(){
+            $window.localStorage.setItem('mystorage',JSON.stringify($scope.todos));
+        }
+        $scope.sortcompleted=function(){
+       $scope.todos = $filter('orderBy')($scope.todos, 'done');
         }
         // $scope.update=function(x){
         //  _.each($scope.todos,function(d){
