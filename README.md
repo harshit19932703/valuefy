@@ -16,7 +16,8 @@
 
 # Info
 *The project uses localstorage (browser) to keep the list of tasks and other details.<br>
-Angular has been used along with express and node to give you the idea of SPA.<br>
-Also,have done the minimal routing using uiRouter and oclazyloading modules as third party dep.
+Angular has been used along with express and node to implement the idea of SPA.<br>
+Also,have done the minimal routing using **uiRouter** and **oclazyloading** modules as third party dep.
+Normal Routing could also be implemented and extended for this app easily for more pages 
 The structuring of app is done inside the public folder for the UI which contains three subfolders.
 Havent added the directive or made any because of the sole reason of just single page.But,it is subdivided in modules and subcontrollers i.e one base and one page.*
